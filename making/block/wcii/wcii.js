@@ -42,7 +42,7 @@ $("#input_make").click(function () {
   var i_theme = btoa(input_theme);
   var i_align = btoa(input_align);
 
-  var url = `https://block2.notion-tools.com/wcii?t=${i_theme}&a=${i_align}`;
+  var url = `https://hyunsdev.github.io/notion-tools-saved/block/wcii?t=${i_theme}&a=${i_align}`;
   $("#output_link").val(url);
   copylink();
 });
