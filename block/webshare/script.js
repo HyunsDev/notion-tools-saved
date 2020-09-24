@@ -21,8 +21,11 @@ if (theme == "black") {
   $("#mode").addClass("night");
 }
 
+
+
+
 if (document.referrer != "") {
-  $("#output_link").val();
+  $("#output_link").val(document.referrer);
 }
 
 let url_link = "";
