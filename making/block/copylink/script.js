@@ -38,7 +38,7 @@ $("#input_make").click(function () {
   } else if (checkUrlForm($("#input_link").val()) != true) {
     $("#input_link").addClass("warn_border");
   } else {
-    var i_link = btoa($("#input_link"));
+    var i_link = btoa($("#input_link").val());
     var url = `https://hyunsdev.github.io/notion-tools-saved/block/copylink/?t=${i_theme}&l=${i_link}`;
     $("#output_link").val(url);
     copylink();
