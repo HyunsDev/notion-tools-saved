@@ -7,6 +7,11 @@ function copylink() {
   document.execCommand("copy");
 }
 
+function checkUrlForm(strUrl) {
+  var expUrl = /^http[s]?\:\/\//i;
+  return expUrl.test(strUrl);
+}
+
 $("#input_theme").click(function () {
   if (theme_color == "white") {
     theme_color = "black";
@@ -21,16 +26,27 @@ $("#input_theme").click(function () {
   }
 });
 
-$("#input_theme").click(function () {
+$("#input_link").click(function() {
+  $(this).removeClass("warn_border")
+})
+
+$("#input_make").click(function () {
   var input_theme = theme_color;
   var i_theme = btoa(input_theme);
+  if ($("#input_link").val() == "") {
+    $("#input_link").addClass("warn_border");
+  } else if (checkUrlForm($("#input_link").val()) != true) {
+    $("#input_link").addClass("warn_border");
+  } else {
+    var i_link = btoa($("#input_link"));
+    var url = `https://hyunsdev.github.io/notion-tools-saved/block/copylink/?t=${i_theme}&l${i_link}`;
+    $("#output_link").val(url);
+    copylink();
+  }
 
-  var url = `https://hyunsdev.github.io/notion-tools-saved/block/webshare/?t=${i_theme}`;
-  $("#output_link").val(url);
-  copylink();
 });
 
-$(".output_copy").click(function() {
+$(".output_copy").click(function () {
   copylink();
 })
 

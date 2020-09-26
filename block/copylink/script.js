@@ -15,42 +15,15 @@ function getParameterByName(name) {
 }
 
 let theme = atob(getParameterByName("t"));
+let link = atob(getParameterByName("l"));
+
+$("#output_link").val(link);
 
 if (theme == "black") {
   $("#mode").removeClass("day");
   $("#mode").addClass("night");
 }
 
-
-
-
-if (document.referrer != "") {
-  $("#output_link").val(document.referrer);
-}
-
-let url_link = "";
-
-if (typeof navigator.share === "undefined") {
-  $(".output_copy").val("복사하기");
-}
-
 $(".output_copy").click(function () {
-  if (document.referrer != "") {
-    url_link = document.referrer;
-  } else {
-    url_link = "https://notion-tools.com";
-  }
-
-  if (navigator.share) {
-    navigator
-      .share({
-        url: url_link,
-      })
-      .then(() => {
-        console.log("Thanks for sharing!");
-      })
-      .catch(console.error);
-  } else {
-    copylink();
-  }
+  copylink()
 });
