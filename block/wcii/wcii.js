@@ -32,7 +32,7 @@ if(now.format("HHmm") == "0000") {
 } else if (now.format("HHmm") == "1200") {
     showtime = "지금은 정오야";
 } else {
-    let hour = now.format("HH");
+    let hour = now.format("H");
     let minu = now.format("mm");
     let showhour = "";
     let showminu;
@@ -44,6 +44,7 @@ if(now.format("HHmm") == "0000") {
 
     //시간
     if (hour == "00") {hour = 24;}
+
     if (hour >= 21) { show_text = "밤";}
     else if (hour >= 17) { show_text = "저녁";}
     else if (hour >= 15) { show_text = "오후";}
@@ -56,6 +57,9 @@ if(now.format("HHmm") == "0000") {
 
     show_text = show_text + " ";
 
+    console.log(hour)
+
+    
     if(hour > 12) { hour = hour - 12 ;}
 
     if(hour > 10) {
